@@ -10,6 +10,7 @@ import SignIn from "./pages/SignIn.jsx";
 import SignUp from "./pages/SignUp.jsx";
 
 import cphbusinesslogo from "./images/cphbusinesslogo.png"
+import UserOverview from "./components/UserOverview.jsx";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false)
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/" element={<Home />}/>
                 <Route path="signin" element={!loggedIn ? <SignIn setLoggedIn={setLoggedIn} /> : <Home loggedIn={loggedIn} />}/>
                 <Route path="signup" element={<SignUp />}/>
+                <Route path="UserOverview" element={<UserOverview />}/>
 
                 <Route path="*" element={<h1>Page Not Found!!!</h1>}/>
 
