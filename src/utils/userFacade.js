@@ -86,6 +86,51 @@ function UserFacade() {
         } else return ""
     }
 
+    //Dog
+
+    //US-1
+    const getAllUsersFromWalker = (updateAction, setErrorMessage) => {
+        return apiFacade.fetchData("users/all/walkers", updateAction, setErrorMessage)
+    }
+
+    const deleteDog = (dogId) => {
+        const options = apiFacade.makeOptions("DELETE", null, null);
+        return fetch(API_URL + "/api/users/dog/" + dogId, options)
+            .then(apiFacade.handleHttpErrors)
+    }
+
+    const addDog = (dog_name, birthdate, breed, gender) => {
+        const options = apiFacade.makeOptions("POST", null,
+            {
+                "dogName": dog_name,
+                "gender": gender,
+                "birthdate": birthdate,
+                "breed": breed
+            }
+        )
+        return fetch(API_URL + "/api/users/dog", options)
+            .then(apiFacade.handleHttpErrors)
+    }
+
+    const updateDog = (dog_id, dog_name, birthdate, breed, gender) => {
+        const options = apiFacade.makeOptions("PUT", null,
+            {
+                "dog_id": dog_id,
+                "dogName": dog_name,
+                "gender": gender,
+                "birthdate": birthdate,
+                "breed": breed
+            }
+        )
+        return fetch(API_URL + "/api/users/dog/update", options)
+            .then(apiFacade.handleHttpErrors)
+    }
+
+    //Extra
+    const getAllDogs = (updateAction, setErrorMessage) => {
+        return apiFacade.fetchData("users/dogs/all", updateAction, setErrorMessage)
+    }
+
     return {
         getAllUsers,
         getUserByUserName,
@@ -98,6 +143,12 @@ function UserFacade() {
         getUserEmail,
         getUserPass,
 
+        //Dog
+        deleteDog,
+        addDog,
+        updateDog,
+        getAllUsersFromWalker,
+        getAllDogs
     }
 }
 

@@ -11,6 +11,8 @@ import SignUp from "./pages/SignUp.jsx";
 
 import cphbusinesslogo from "./images/cphbusinesslogo.png"
 import UserOverview from "./components/UserOverview.jsx";
+import AdminPanel from "./components/AdminPanel.jsx";
+import UpdateDog from "./components/UpdateDog.jsx";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false)
@@ -27,7 +29,9 @@ function App() {
                 <Route path="/" element={<Home />}/>
                 <Route path="signin" element={!loggedIn ? <SignIn setLoggedIn={setLoggedIn} /> : <Home loggedIn={loggedIn} />}/>
                 <Route path="signup" element={<SignUp />}/>
-                <Route path="UserOverview" element={<UserOverview />}/>
+                <Route path="user-overview" element={<UserOverview />}/>
+                <Route path="admin-panel" element={<AdminPanel />}/>
+                <Route path="admin-panel/update"  element={<UpdateDog />}/>
 
                 <Route path="*" element={<h1>Page Not Found!!!</h1>}/>
 
