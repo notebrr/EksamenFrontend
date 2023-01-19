@@ -10,7 +10,9 @@ function Home() {
             <h1>Welcome</h1>
             <br/>
             <p>This is a dog walker website</p>
-
+            <p>/admin-panel</p>
+            <p>/admin-panel/update</p>
+            <p>/user-overview</p>
             <Outlet/>
         </div>
     );
